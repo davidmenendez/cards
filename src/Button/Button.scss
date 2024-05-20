@@ -1,0 +1,35 @@
+$blue: #005eff;
+$blue-hover: #004ed4;
+
+.button {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  padding: 0.5rem 1rem;
+  border: 0;
+  cursor: pointer;
+  transition: background 300ms ease;
+
+  &--sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  &-primary {
+    background: $blue;
+    color: #fff;
+
+    &:hover {
+      background: $blue-hover;
+    }
+  }
+
+  &-secondary {
+    background: #fff;
+    color: #005eff;
+
+    &:hover {
+      background: #d4d4d4;
+    }
+  }
+}
