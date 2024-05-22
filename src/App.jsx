@@ -2,6 +2,8 @@
 import ExpressiveCard from "./ExpressiveCard";
 import ProductiveCard from "./ProductiveCard";
 
+import { useState } from "react";
+
 const App = () => {
   const expressiveProps = {
     title: "Expressive Title",
@@ -30,17 +32,39 @@ const App = () => {
         onClick: () => console.log("deleted"),
       },
     ],
-    // actionsPosition: "top",
-    actionsPosition: "bottom",
-    onClick: () => console.log('click zones'),
+    actionsPosition: "top",
+    onClick: () => console.log("click zones"),
     clickZone: 1,
+  };
+
+  const [clickZone, setClickZone] = useState(0);
+  const [actionsPosition, setActionsPosition] = useState("bottom");
+  const [clickable, setClickable] = useState(false);
+
+  const actionsPositionHandler = (position) => {
+    setActionsPosition(position);
   };
 
   return (
     <div className="app">
       <div className="container">
         <div className="cards">
-          <ExpressiveCard {...expressiveProps}>
+          <ExpressiveCard
+            {...expressiveProps}
+            onClick={clickable ? expressiveProps.onClick : undefined}
+          >
+            <div className="input-group">
+              <div>
+                <input
+                  type="checkbox"
+                  id="clickable"
+                  name="clickable"
+                  checked={clickable}
+                  onChange={(e) => setClickable(e.target.checked)}
+                />
+                <label htmlFor="clickable">clickable</label>
+              </div>
+            </div>
             <p>
               Pellentesque habitant morbi tristique senectus et netus et
               malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat
@@ -49,7 +73,46 @@ const App = () => {
               placerat eleifend leo.
             </p>
           </ExpressiveCard>
-          <ProductiveCard {...productiveProps}>
+          <ProductiveCard
+            {...productiveProps}
+            clickZone={clickZone}
+            actionsPosition={actionsPosition}
+          >
+            <div className="input-group">
+              <label>productive click zone</label>
+              <input
+                type="number"
+                value={clickZone}
+                onChange={(e) => setClickZone(Number(e.target.value))}
+                min={0}
+                max={3}
+              />
+            </div>
+            <div className="input-group">
+              <legend>actions position</legend>
+              <div>
+                <input
+                  type="radio"
+                  id="top"
+                  name="position"
+                  value="top"
+                  checked={actionsPosition === "top"}
+                  onChange={() => actionsPositionHandler("top")}
+                />
+                <label htmlFor="top">top</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  id="bottom"
+                  name="position"
+                  value="bottom"
+                  checked={actionsPosition === "bottom"}
+                  onChange={() => actionsPositionHandler("bottom")}
+                />
+                <label htmlFor="bottom">bottom</label>
+              </div>
+            </div>
             <p>
               Pellentesque habitant morbi tristique senectus et netus et
               malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat
