@@ -19,9 +19,15 @@ const ExpressiveCard = (props) => {
 
   const displayHeader = title || subtitle;
   const displayFooter = primaryButtonText || secondaryButtonText;
+  const isClickable = onClick && typeof onClick === "function";
 
   return (
-    <Card className={cx("expressive-card", className)} onClick={onClick}>
+    <Card
+      className={cx("expressive-card", className, {
+        clickable: isClickable,
+      })}
+      onClick={isClickable ? onClick : undefined}
+    >
       {displayHeader && <CardHeader title={title} subtitle={subtitle} />}
       <CardBody>{children}</CardBody>
       {displayFooter && (

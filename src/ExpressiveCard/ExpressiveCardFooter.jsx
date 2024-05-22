@@ -10,24 +10,15 @@ const ExpressiveCardFooter = (props) => {
     secondaryButtonOnClick,
   } = props;
 
-  const onClickHandler = (e, fn) => {
-    e.stopPropagation();
-    if (fn) {
-      fn();
-    }
-  };
-  const onPrimaryClick = (e) => onClickHandler(e, primaryButtonOnClick);
-  const onSecondaryClick = (e) => onClickHandler(e, secondaryButtonOnClick);
-
   return (
     <CardFooter className="expressive-card-footer">
       {secondaryButtonText && (
-        <Button onClick={onSecondaryClick} color="secondary">
+        <Button onClick={secondaryButtonOnClick} color="secondary">
           {secondaryButtonText}
         </Button>
       )}
       {primaryButtonText && (
-        <Button onClick={onPrimaryClick}>{primaryButtonText}</Button>
+        <Button onClick={primaryButtonOnClick}>{primaryButtonText}</Button>
       )}
     </CardFooter>
   );

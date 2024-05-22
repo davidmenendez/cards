@@ -3,19 +3,10 @@ import cx from "classnames";
 import "./Card.scss";
 
 const Card = (props) => {
-  const { children, className, onClick } = props;
-  const classnames = cx("card", className, {
-    "card--clickable": onClick,
-  });
-
-  const clickHandler = () => {
-    if (onClick) {
-      onClick();
-    }
-  };
+  const { children, className, ...rest } = props;
 
   return (
-    <div className={classnames} onClick={clickHandler}>
+    <div className={cx("card", className)} {...rest}>
       {children}
     </div>
   );

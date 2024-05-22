@@ -2,15 +2,6 @@
   background: #fff;
   max-width: 20rem;
 
-  &--clickable {
-    cursor: pointer;
-    transition: background 300ms ease;
-
-    &:hover {
-      background: #D4D4D4;
-    }
-  }
-
   &-header {
     padding: 1rem;
     display: flex;
@@ -37,5 +28,14 @@
   &-footer {
     display: flex;
     padding-top: 1rem;
+  }
+}
+
+.clickable {
+  cursor: pointer;
+  transition: background 300ms ease;
+
+  &:hover {
+    background: #d4d4d4;
   }
 }

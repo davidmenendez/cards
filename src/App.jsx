@@ -32,6 +32,8 @@ const App = () => {
     ],
     // actionsPosition: "top",
     actionsPosition: "bottom",
+    onClick: () => console.log('click zones'),
+    clickZone: 1,
   };
 
   return (
