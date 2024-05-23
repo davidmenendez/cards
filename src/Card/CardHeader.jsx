@@ -3,6 +3,7 @@ import cx from "classnames";
 
 const CardHeader = (props) => {
   const { title, subtitle, children, className, ...rest } = props;
+
   return (
     <div className={cx("card-header", className)} {...rest}>
       <div className="card-title-block">

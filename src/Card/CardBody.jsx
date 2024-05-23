@@ -3,6 +3,7 @@ import cx from "classnames";
 
 const CardBody = (props) => {
   const { children, className, ...rest } = props;
+
   return (
     <div className={cx("card-body", className)} {...rest}>
       {children}
