@@ -1,6 +1,9 @@
 .card {
   background: #fff;
-  max-width: 20rem;
+  max-width: 40rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 
   &-header {
     padding: 1rem;
@@ -17,6 +20,11 @@
     margin-bottom: 0;
   }
 
+  &-label {
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
   &-body {
     padding: 1rem;
 
@@ -28,6 +36,16 @@
   &-footer {
     display: flex;
     padding-top: 1rem;
+  }
+
+  &-title-block {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-media-block {
+    display: flex;
+    flex-direction: row;
   }
 }
 

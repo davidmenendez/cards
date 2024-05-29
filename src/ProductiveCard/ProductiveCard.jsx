@@ -4,6 +4,7 @@ import { CardBody, Card } from "../Card";
 import ProductiveCardFooter from "./ProductiveCardFooter";
 import ProductiveCardHeader from "./ProductiveCardHeader";
 import "./ProductiveCard.scss";
+import { isClickable } from "../utils";
 
 const ProductiveCard = (props) => {
   const {
@@ -21,17 +22,17 @@ const ProductiveCard = (props) => {
 
   const displayHeader = title || subtitle;
 
-  const isClickable = (zone) => {
-    return onClick && typeof onClick === "function" && clickZone === zone;
+  const zoneIsClickable = (zone) => {
+    return isClickable(onClick) && clickZone === zone;
   };
 
-  const zoneOneClickable = isClickable(1);
-  const zoneTwoClickable = isClickable(2);
-  const zoneThreeClickable = isClickable(3);
+  const zoneOneClickable = zoneIsClickable(1);
+  const zoneTwoClickable = zoneIsClickable(2);
+  const zoneThreeClickable = zoneIsClickable(3);
 
   return (
     <Card
-      className={cx("card", "productive-card", className, {
+      className={cx("productive-card", className, {
         clickable: zoneOneClickable,
       })}
       onClick={zoneOneClickable ? onClick : undefined}

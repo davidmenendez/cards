@@ -1,6 +1,12 @@
 /* cSpell:disable */
 import ExpressiveCard from "./ExpressiveCard";
 import ProductiveCard from "./ProductiveCard";
+import GettingStartedCard from "./GettingStartedCard";
+import ReactLogo from "./assets/react.svg";
+import Icon from "./assets/Icon";
+import Chart from "./assets/Chart";
+import Clock from "./assets/Clock";
+import Arrow from "./assets/Arrow";
 
 import { useState } from "react";
 
@@ -35,6 +41,30 @@ const App = () => {
     actionsPosition: "top",
     onClick: () => console.log("click zones"),
     clickZone: 1,
+  };
+
+  const getStartedProps = {
+    title: "Title",
+    label: "Label",
+    media: <img src={ReactLogo} />,
+    pictogram: <Icon />,
+    actions: [
+      {
+        id: "clock",
+        icon: <Clock />,
+        label: "20 minutes",
+      },
+      {
+        id: "chart",
+        icon: <Chart />,
+        label: "Beginner",
+      },
+      {
+        id: "arrow",
+        icon: <Arrow />,
+      },
+    ],
+    onClick: () => console.log("get started!"),
   };
 
   const [clickZone, setClickZone] = useState(0);
@@ -121,6 +151,7 @@ const App = () => {
               placerat eleifend leo.
             </p>
           </ProductiveCard>
+          <GettingStartedCard {...getStartedProps}></GettingStartedCard>
         </div>
       </div>
     </div>

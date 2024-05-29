@@ -1,0 +1,49 @@
+.gs-card {
+  background: rgb(90, 0, 174);
+  color: #fff;
+  fill: #fff;
+
+  &.clickable:hover {
+    background: rgb(117, 0, 226);
+  }
+
+  &-header {
+    flex-direction: column;
+  }
+
+  .card-media {
+    flex: 1;
+  }
+
+  .card-media-block {
+    gap: 1rem;
+  }
+
+  .card-media img {
+    max-width: 15rem;
+    width: 100%;
+  }
+
+  .card-actions {
+    display: flex;
+    flex: 1;
+    gap: 0.5rem;
+  }
+
+  .action {
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 0.5rem;
+
+    &:last-child {
+      flex: 1;
+      justify-content: flex-end;
+    }
+  }
+
+  &-footer {
+    padding: 1rem;
+  }
+}
